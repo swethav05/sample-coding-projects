@@ -25,6 +25,7 @@ public class FractionMain {
         System.out.println("Multiplication of " + f1 + " and " + f2 + " is : " + f3);
 
         Fraction f4 = new Fraction(-4, 8);
+
         //Display method can be used to display the final result of the below operation instead of printing it manually
         f1.add(f2).multiply(f4).subtract(f2).displayResult();
     }
