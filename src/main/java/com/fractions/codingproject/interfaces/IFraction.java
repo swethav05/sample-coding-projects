@@ -1,20 +1,26 @@
 package com.fractions.codingproject.interfaces;
 
+
 /**
  * Specification to perform the arithmetic operations, equality and relational checks and display the result
- *
- * @param <T>
  */
-public interface IFraction<T extends Number> {
-    void add(T value1, T value2);
+public interface IFraction {
+    int getNumerator();
 
-    void subtract(T value1, T value2);
+    int getDenominator();
 
-    void multiply(T value1, T value2);
+    IFraction add(IFraction fractionTwo);
 
-    void divide(T value1, T value2);
 
-    void compareValues(T value1, T value2);
+    IFraction subtract(IFraction fractionTwo);
 
-    void display();
+
+    IFraction multiply(IFraction fractionTwo);
+
+
+    IFraction divide(IFraction fractionTwo);
+
+    void displayResult();
+
+    void compareValues(IFraction fractionTwo);
 }

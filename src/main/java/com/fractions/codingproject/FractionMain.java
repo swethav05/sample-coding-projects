@@ -1,49 +1,32 @@
 package com.fractions.codingproject;
 
-import com.fractions.codingproject.impl.IntegerFractionImpl;
+import com.fractions.codingproject.impl.Fraction;
 import com.fractions.codingproject.interfaces.IFraction;
-
-import java.util.Scanner;
 
 /**
  * Main program to run the {@link IFraction} operations
  */
 public class FractionMain {
-    private static final String FIRST_VALUE = "first";
-    private static final String SECOND_VALUE = "second";
 
     public static void main(String[] args) {
-        IFraction<Integer> fraction = new IntegerFractionImpl<Integer>();
-        int value1, value2;
+        Fraction f1 = new Fraction(-25, 35);
+        Fraction f2 = new Fraction(3, 7);
+        f1.compareValues(f2);
+        IFraction f3 = f1.add(f2);
+        System.out.println("Addition of " + f1 + " and " + f2 + " is : " + f3);
 
-        value1 = getIntegerValue(FIRST_VALUE);
-        value2 = getIntegerValue(SECOND_VALUE);
-        fraction.add(value1, value2);
-        fraction.subtract(value1, value2);
-        fraction.multiply(value1, value2);
-        fraction.divide(value1, value2);
-        fraction.compareValues(value1, value2);
-        fraction.display();
+        f3 = f1.subtract(f2);
+        System.out.println("Subtraction of " + f1 + " and " + f2 + " is : " + f3);
 
-    }
+        f3 = f1.divide(f2);
+        System.out.println("Division of " + f1 + " and " + f2 + " is : " + f3);
 
-    /**
-     * This method gets the inputs from the user.
-     *
-     * @param valueOrder This tells input value order {{@link #FIRST_VALUE} (OR) {@link #SECOND_VALUE}. This is used in
-     *                   printing the message to the user
-     * @return
-     */
-    private static Integer getIntegerValue(String valueOrder) {
+        f3 = f1.multiply(f2);
+        System.out.println("Multiplication of " + f1 + " and " + f2 + " is : " + f3);
 
-        System.out.println("Enter the " + valueOrder + " integer value to perform arithmetic operations");
-        Scanner in = new Scanner(System.in);
-        String string1 = in.nextLine();
-        try {
-            return Integer.valueOf(string1);
-        } catch (NumberFormatException ex) {
-            System.out.println("Not a valid Integer value");
-            return getIntegerValue(valueOrder);
-        }
+        Fraction f4 = new Fraction(-4, 8);
+        //Display method can be used to display the final result of the below operation instead of printing it manually
+        f1.add(f2).multiply(f4).subtract(f2).displayResult();
     }
 }
+
